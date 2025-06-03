@@ -199,57 +199,54 @@ export default function CalendarPage() {
               Events for {format(new Date(selectedDate), 'MMMM d, yyyy')}
             </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-              {filteredEvents.map((event) => {
-                const TypeIcon = typeIcons[event.type]
-                return (
-                  <animated.div
-                    key={event.id}
-                    style={fadeIn}
-                    className="relative flex flex-col overflow-hidden rounded-lg bg-white shadow-sm"
-                  >
-                    <div className="p-6">
-                      <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-medium text-gray-900">{event.title}</h2>
-                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${typeColors[event.type]}`}>
-                          {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-sm text-gray-500">{event.description}</p>
+              {filteredEvents.map((event) => (
+                <animated.div
+                  key={event.id}
+                  style={fadeIn}
+                  className="relative flex flex-col overflow-hidden rounded-lg bg-white shadow-sm"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-lg font-medium text-gray-900">{event.title}</h2>
+                      <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${typeColors[event.type]}`}>
+                        {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-sm text-gray-500">{event.description}</p>
 
-                      <div className="mt-4 space-y-3">
-                        <div className="flex items-center text-sm text-gray-500">
-                          <ClockIcon className="h-5 w-5 text-gray-400" />
-                          <span className="ml-1.5">{event.time}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-500">
-                          <MapPinIcon className="h-5 w-5 text-gray-400" />
-                          <span className="ml-1.5">{event.location}</span>
-                        </div>
-                        {event.project && (
-                          <div className="flex items-center text-sm text-gray-500">
-                            <TagIcon className="h-5 w-5 text-gray-400" />
-                            <span className="ml-1.5">{event.project}</span>
-                          </div>
-                        )}
+                    <div className="mt-4 space-y-3">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <ClockIcon className="h-5 w-5 text-gray-400" />
+                        <span className="ml-1.5">{event.time}</span>
                       </div>
-
-                      <div className="mt-4">
-                        <h3 className="text-sm font-medium text-gray-900">Attendees</h3>
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {event.attendees.map((attendee) => (
-                            <span
-                              key={attendee}
-                              className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800"
-                            >
-                              {attendee}
-                            </span>
-                          ))}
+                      <div className="flex items-center text-sm text-gray-500">
+                        <MapPinIcon className="h-5 w-5 text-gray-400" />
+                        <span className="ml-1.5">{event.location}</span>
+                      </div>
+                      {event.project && (
+                        <div className="flex items-center text-sm text-gray-500">
+                          <TagIcon className="h-5 w-5 text-gray-400" />
+                          <span className="ml-1.5">{event.project}</span>
                         </div>
+                      )}
+                    </div>
+
+                    <div className="mt-4">
+                      <h3 className="text-sm font-medium text-gray-900">Attendees</h3>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {event.attendees.map((attendee) => (
+                          <span
+                            key={attendee}
+                            className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800"
+                          >
+                            {attendee}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                  </animated.div>
-                )
-              })}
+                  </div>
+                </animated.div>
+              ))}
             </div>
           </div>
         </div>

@@ -7,8 +7,6 @@ import {
   UserGroupIcon,
   CheckCircleIcon,
   ExclamationCircleIcon,
-  ArrowUpIcon,
-  ArrowDownIcon,
 } from '@heroicons/react/24/outline'
 
 interface Project {

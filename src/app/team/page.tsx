@@ -11,6 +11,7 @@ import {
   XCircleIcon
 } from '@heroicons/react/24/outline'
 import { ForwardRefExoticComponent, SVGProps, RefAttributes } from 'react'
+import Image from 'next/image'
 
 type Status = 'available' | 'busy' | 'away' | 'offline'
 
@@ -168,10 +169,12 @@ export default function TeamPage() {
                 <div className="p-6">
                   <div className="flex items-center">
                     <div className="h-16 w-16 flex-shrink-0">
-                      <img
+                      <Image
                         className="h-16 w-16 rounded-full"
                         src={member.avatar}
                         alt={member.name}
+                        width={64}
+                        height={64}
                       />
                     </div>
                     <div className="ml-4">

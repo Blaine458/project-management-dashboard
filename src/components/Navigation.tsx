@@ -4,7 +4,6 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
-  XMarkIcon,
   HomeIcon,
   UsersIcon,
   FolderIcon,
@@ -13,7 +12,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: HomeIcon },
@@ -25,7 +23,6 @@ const navigation = [
 
 export default function Navigation() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const pathname = usePathname()
 
   return (
     <>

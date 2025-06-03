@@ -10,8 +10,7 @@ import {
   UserGroupIcon,
   CheckCircleIcon,
   ExclamationCircleIcon,
-  CurrencyDollarIcon,
-  CalendarIcon
+  CurrencyDollarIcon
 } from '@heroicons/react/24/outline'
 
 interface MetricCard {

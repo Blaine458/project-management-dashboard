@@ -12,6 +12,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isSameDay } from 'date-fns'
+import React from 'react'
 
 interface Event {
   id: number
@@ -175,20 +176,17 @@ export default function CalendarPage() {
                       {format(day, 'd')}
                     </div>
                     <div className="mt-1 space-y-1">
-                      {dayEvents.map((event) => {
-                        const TypeIcon = typeIcons[event.type]
-                        return (
-                          <div
-                            key={event.id}
-                            className={`text-xs p-1 rounded truncate ${typeColors[event.type]}`}
-                          >
-                            <div className="flex items-center gap-1">
-                              <TypeIcon className="h-3 w-3" />
-                              <span className="truncate">{event.title}</span>
-                            </div>
+                      {dayEvents.map((event) => (
+                        <div
+                          key={event.id}
+                          className={`text-xs p-1 rounded truncate ${typeColors[event.type]}`}
+                        >
+                          <div className="flex items-center gap-1">
+                            {React.createElement(typeIcons[event.type], { className: "h-3 w-3" })}
+                            <span className="truncate">{event.title}</span>
                           </div>
-                        )
-                      })}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 )

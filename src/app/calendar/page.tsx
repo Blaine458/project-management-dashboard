@@ -209,6 +209,7 @@ export default function CalendarPage() {
                     <div className="flex items-center justify-between">
                       <h2 className="text-lg font-medium text-gray-900">{event.title}</h2>
                       <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${typeColors[event.type]}`}>
+                        {React.createElement(typeIcons[event.type], { className: "h-4 w-4 mr-1" })}
                         {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
                       </span>
                     </div>
